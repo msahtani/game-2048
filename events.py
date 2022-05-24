@@ -15,4 +15,4 @@ def check_events():
         elif event.type == pygame.KEYDOWN:
             
             if event.key in ARROWS:
-                grid.make_move(event.key)
+                grid.make_move[event.key]()

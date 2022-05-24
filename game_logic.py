@@ -4,20 +4,18 @@ import pygame
 
 class Game2048:
 
-    def __init__(self, mat=None):
-        if mat:
-            self.__mat = np.array(mat)
-        else:
-            self.__mat = np.zeros((4, 4))
-            self.new_number(2)
+    def __init__(self,):
+       
+        self.__mat = np.zeros((4, 4))
+        self.new_number(2)
 
-        self.actions = {
+        self.make_move = {
             pygame.K_LEFT: self.__toLeft,
             pygame.K_RIGHT: self.__toRight,
             pygame.K_UP: self.__toUp,
             pygame.K_DOWN: self.__toDown
         }
-        self.last_key = None
+        
 
     def __iter__(self):
         self.i = 0
@@ -66,9 +64,6 @@ class Game2048:
             if self.__mat[i, j] != 0:
                 self.__mat[i, m], self.__mat[i, j] = self.__mat[i, j], self.__mat[i, m]
                 m += 1
-        
-    def make_move(self, key):
-        self.actions[key]()
 
     def __toLeft(self):
         mat = self.__mat

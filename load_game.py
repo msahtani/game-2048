@@ -1,14 +1,12 @@
 from game_logic import Game2048
 
-grid = None
+class GameLoader:
 
-def get_grid():
-    global grid
-    return grid
+    grid = None
 
-def load_game(id=0): #
-    global grid
-    if id == 0: # 
-        grid = Game2048()
+    @classmethod
+    def get_grid(cls):
+        return cls.grid
 
-    return grid
+    def load_game(cls):
+       cls.grid = [Game2048()]
